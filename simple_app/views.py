@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from datetime import datetime
+from django.views import View
+from django.http import HttpResponse, HttpRequest
 
-# Create your views here.
+
+class SimpleView(View):
+    def get(self, request: HttpRequest):
+        html = f"{datetime.now()}"
+
+        return HttpResponse(html)
