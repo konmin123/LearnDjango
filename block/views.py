@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from rest_framework.views import Response, APIView
 
-# Create your views here.
+from .models import BLOGS
+
+
+class BlogApiView(APIView):
+    def get(self, request):
+        return Response(data=BLOGS)
+
+    def post(self, request):
+        ...
