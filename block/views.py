@@ -8,4 +8,10 @@ class BlogApiView(APIView):
         return Response(data=BLOGS)
 
     def post(self, request):
+        new_blog = request.data
+        BLOGS.append(new_blog)
+
+        return Response(data=new_blog)
+
+    def put(self, request):
         ...
