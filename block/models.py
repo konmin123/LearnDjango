@@ -1,10 +1,8 @@
-BLOGS = [
-    {
-        "pk": 1,
-        "title": 'blog title 1'
-    },
-    {
-        "pk": 2,
-        "title": 'blog title 2'
-    },
-]
+from django.db import models
+
+
+class Note(models.Model):
+    title = models.CharField(max_length=255, verbose_name='Заголовок')
+    message = models.TextField(default='', verbose_name='Текст сообщения')
+    public = models.BooleanField(default=False, verbose_name='Оп')
+    date_add = models.DateTimeField(auto_now_add=True, verbose_name='...')
