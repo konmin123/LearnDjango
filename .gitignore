@@ -1,2 +1,3 @@
 /template.env
 /.env
+/db.sqlite3
