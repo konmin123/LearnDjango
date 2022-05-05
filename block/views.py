@@ -11,5 +11,9 @@ class NoteListCreateAPIView(APIView):
         objects = Note.objects.all()
         return Response([serializers.note_to_json(obj) for obj in objects])
 
+    def post(self, request: Request):
+        data = request.data
+        note = Note(**data)
+        note.save(force_insert=True)
 
-
+        return Response(serializers.note_to_json(note))
