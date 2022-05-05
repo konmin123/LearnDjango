@@ -1,17 +1,11 @@
-from rest_framework.views import Response, APIView
+from rest_framework.views import APIView
+from rest_framework.request import Request
+from rest_framework.response import Response
 
-from .models import Note
+
+class NoteListCreateAPIView(APIView):
+    def get(self, request: Request):
+        return Response({'Test': 'Test'})
 
 
-class BlogApiView(APIView):
-    def get(self, request):
-        return Response(data=Note)
 
-    def post(self, request):
-        new_blog = request.data
-        Note.append(new_blog)
-
-        return Response(data=new_blog)
-
-    def put(self, request):
-        ...
