@@ -16,4 +16,4 @@ class NoteListCreateAPIView(APIView):
         note = Note(**data)
         note.save(force_insert=True)
 
-        return Response(serializers.note_to_json(note))
+        return Response(serializers.note_add_new(note))
