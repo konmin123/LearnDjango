@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import status
+from django.shortcuts import get_object_or_404
 
 from block.models import Note
 from . import serializers
@@ -25,5 +26,5 @@ class NoteListCreateAPIView(APIView):
 
 class NoteDetailAPIView(APIView):
     def get(self, request: Request, pk):
-        note = Note.objects.get(pk=pk)
+        note = get_object_or_404(Note, pk=pk)
         return Response(serializers.note_to_json(note))
