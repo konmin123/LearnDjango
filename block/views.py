@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.request import Request
 from rest_framework.response import Response
+from rest_framework import status
 
 from block.models import Note
 from . import serializers
@@ -16,4 +17,7 @@ class NoteListCreateAPIView(APIView):
         note = Note(**data)
         note.save(force_insert=True)
 
-        return Response(serializers.note_add_new(note))
+        return Response(
+            serializers.note_add_new(note),
+            status=status.HTTP_201_CREATED
+        )
