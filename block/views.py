@@ -21,3 +21,9 @@ class NoteListCreateAPIView(APIView):
             serializers.note_add_new(note),
             status=status.HTTP_201_CREATED
         )
+
+
+class NoteDetailAPIView(APIView):
+    def get(self, request: Request, pk):
+        note = Note.objects.get(pk=pk)
+        return Response(serializers.note_to_json(note))
