@@ -5,4 +5,4 @@ from .models import Note
 
 @admin.register(Note)
 class NoteAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('title', 'public', 'update_ad', 'id')
