@@ -10,3 +10,7 @@ class NoteAdmin(admin.ModelAdmin):
     fields = (('title', 'public'), 'message', 'create_at', 'update_ad')
 
     readonly_fields = ('create_at', 'update_ad')
+
+    search_fields = ['title']
+
+    list_filter = ('public', "message")
